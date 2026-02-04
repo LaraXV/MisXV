@@ -34,19 +34,24 @@
             margin: 0 auto;
         }
 
-        .parallax-end {
-            background-image: url('img/img2.jpg');
-            background-attachment: scroll;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            height: 450px;
-            border-radius: 2rem 2rem 0 0;
-            display: flex;
-            align-items: flex-end; 
-            justify-content: center;
-            padding-bottom: 40px; 
-        }
+.parallax-end {
+    background-image: url('img/img2.jpg');
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Asegura que la foto se vea entera */
+    background-size: contain;
+    /* Define la proporción horizontal (ajústalo si tu foto es más cuadrada) */
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;
+    border-radius: 2rem 2rem 0 0;
+    /* IMPORTANTE: 'relative' permite ubicar elementos 'absolute' dentro de él */
+    position: relative;
+    /* Quitamos el display:flex y los paddings que centraban el texto abajo */
+    display: block;
+    overflow: hidden; /* Para que los bordes redondeados corten bien */
+}
 
         .icon-wrapper {
             background-color: white;
@@ -210,10 +215,9 @@
             <h3 class="text-xs tracking-widest font-bold text-green-900 mb-2 uppercase">Regalos</h3>
             <p class="birthstone text-2xl text-green-800 ">No es necesario que me regales nada, pero si gustas hacerlo:</p>
             <div class="bg-green-50/50 p-4 rounded-xl text-sm font-mono text-green-800 border border-green-100">
-                Cuenta en $: <br>
-                <strong>110932236-00001</strong><br><br>
-                Cuenta en U$S:<br> 
-                <strong>110932236-00002</strong>
+                -Cuentas a nombre de Lara-<br><br>
+				BROU $:   <strong>110932236-00001</strong><br><br>
+                BROU U$S: <strong>110932236-00002</strong>
             </div>
         </div>
 
@@ -225,11 +229,11 @@
         </div>
     </section>
 
-    <div class="parallax-end">
-        <div class="text-center text-white bg-black/20 p-4 backdrop-blur-[2px] w-full">
-            <p class="birthstone text-5xl">¡Te espero!</p>
-        </div>
+<div class="parallax-end">
+    <div class="absolute top-6 left-4 -rotate-6 bg-white/30 p-3 rounded-xl backdrop-blur-sm shadow-sm border border-white/20">
+        <p class="birthstone text-5xl text-green-900 leading-none">¡Te espero!</p>
     </div>
+</div>
 
     <footer class="bg-white py-12 text-center">
         <div class="flex justify-center gap-4 mb-6">
@@ -297,5 +301,6 @@
         updateCountdown();
     </script>
 </body>
-
 </html>
+
+
